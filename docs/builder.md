@@ -26,7 +26,7 @@ OptionBay supports a wide range of input types to cover every use case:
 | **Image Swatches** | Choosing between patterns, materials, or styles visually. |
 | **Color Swatches** | Selecting colors from a palette. |
 | **File Upload** | Collecting logos, photos, or documents from customers. |
-| **Static Content** | Renders rich text/HTML directly on the page (no input). |
+
 
 ## Common Field Settings
 

@@ -33,10 +33,6 @@ If you use Image or Color swatches, you can configure their dimensions globally:
 
 Technical configurations for data management and troubleshooting.
 
-### Preload Initial Data
-This setting tracks whether the initial demo data (example option groups) has been loaded into your store. 
-- If you want to re-run the demo data import (e.g., after deleting the example groups), uncheck this box and save. 
-- The next time you activate the plugin or visit the Options page, the preloader will run again.
 
 ### Debug Mode
 When enabled, detailed logs will be written to the database. This is helpful for troubleshooting conditional logic or pricing issues. 

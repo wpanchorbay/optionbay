@@ -16,14 +16,14 @@ Every field in the Addon Builder can have its own set of "Conditional Rules." Wh
 A rule consists of three parts:
 - **Target Field:** The other field you want to "watch" for changes.
 - **Operator:** The comparison type. Supported operators include:
-    - **is:** Matches the value exactly.
-    - **is not:** Matches anything except the value.
+    - **equals:** Matches the value exactly.
+    - **not equals:** Matches anything except the value.
     - **greater than:** (For numbers) Checks if the input is larger.
     - **less than:** (For numbers) Checks if the input is smaller.
-    - **greater or equal:** (For numbers)
-    - **less or equal:** (For numbers)
+    - **greater than or equals:** (For numbers) Checks if the input is larger or equal.
+    - **less than or equals:** (For numbers) Checks if the input is smaller or equal.
     - **contains:** Checks if the value exists within the input (useful for text or multi-select).
-    - **does not contain:** Checks if the value is missing from the input.
+    - **not contains:** Checks if the value is missing from the input.
     - **is empty:** Triggers if the field has no value.
     - **is not empty:** Triggers if the field has any value.
 - **Value:** The specific value that triggers the logic.
