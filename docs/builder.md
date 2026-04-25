@@ -16,16 +16,17 @@ OptionBay supports a wide range of input types to cover every use case:
 
 | Field Type | Best For... |
 | :--- | :--- |
-| **Text** | Single line inputs like names or short messages. |
-| **Textarea** | Longer messages like "Gift Note" or "Special Instructions". |
-| **Number** | Quantities, dimensions, or any numeric data. |
-| **Select** | Dropdown lists for choosing one item from many. |
-| **Radio** | Choosing one option where all choices are visible. |
-| **Checkbox** | Selecting multiple items from a list. |
-| **Single Checkbox** | A simple toggle (Yes/No) for things like "Add Warranty". |
-| **Image Swatches** | Choosing between patterns, materials, or styles visually. |
-| **Color Swatches** | Selecting colors from a palette. |
-| **File Upload** | Collecting logos, photos, or documents from customers. |
+| **[Text](./fields/text)** | Single line inputs like names or short messages. |
+| **[Textarea](./fields/textarea)** | Longer messages like "Gift Note" or "Special Instructions". |
+| **[Number](./fields/number)** | Quantities, dimensions, or any numeric data. |
+| **[Select](./fields/select)** | Dropdown lists for choosing one item from many. |
+| **[Radio](./fields/radio)** | Choosing one option where all choices are visible. |
+| **[Checkbox](./fields/checkbox)** | Selecting multiple items from a list. |
+| **[Single Checkbox](./fields/single-checkbox)** | A simple toggle (Yes/No) for things like "Add Warranty". |
+| **[Image Swatches](./fields/image-swatch)** | Choosing between patterns, materials, or styles visually. |
+| **[Color Swatches](./fields/color-swatch)** | Selecting colors from a palette. |
+| **[File Upload](./fields/file-upload)** | Collecting logos, photos, or documents from customers. |
+| **[Email](./fields/email)** | Capturing an email address for digital delivery or contact info. |
 
 
 ## Common Field Settings
@@ -49,9 +50,7 @@ You can attach costs and physical weight to almost any field:
 - **Weight:** The amount of physical weight to add to the product (affects shipping calculations).
 
 ### Appearance
-- **Placeholder:** Ghost text shown inside the input.
-- **Default Value:** The value the field starts with.
-- **Custom Class:** Add a CSS class for advanced theme customization.
+- **Placeholder:** Ghost text shown inside the input (available for Text, Textarea, and Number fields).
 
 ## Reordering Fields
 To change the order in which fields appear on the product page, simply grab the handle on the left of any field in the builder list and drag it to your preferred position.

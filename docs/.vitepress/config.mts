@@ -107,6 +107,23 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Field Types',
+        collapsed: true,
+        items: [
+          { text: 'Text', link: '/fields/text' },
+          { text: 'Textarea', link: '/fields/textarea' },
+          { text: 'Number', link: '/fields/number' },
+          { text: 'Select', link: '/fields/select' },
+          { text: 'Radio', link: '/fields/radio' },
+          { text: 'Checkbox', link: '/fields/checkbox' },
+          { text: 'Single Checkbox', link: '/fields/single-checkbox' },
+          { text: 'Image Swatch', link: '/fields/image-swatch' },
+          { text: 'Color Swatch', link: '/fields/color-swatch' },
+          { text: 'File Upload', link: '/fields/file-upload' },
+          { text: 'Email', link: '/fields/email' },
+        ]
+      },
+      {
         text: 'Configuration',
         items: [
           { text: 'WooCommerce Settings', link: '/settings' },

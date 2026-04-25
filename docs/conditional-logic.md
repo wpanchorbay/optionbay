@@ -1,18 +1,20 @@
 # Conditional Logic
 
-**Conditional Logic** allows you to create dynamic forms that react to user input. You can show or hide specific fields based on the selections your customers make, creating a much cleaner and more professional shopping experience.
+**Conditional Logic** allows you to dynamically show or hide fields based on the value of other fields in the same group. This creates a personalized, step-by-step experience for your customers — they only see the options that are relevant to their current selections.
 
-## How it Works
+## How It Works
 
-Every field in the Addon Builder can have its own set of "Conditional Rules." When these rules are met, the field will either **Show** or **Hide** automatically on the product page.
+Each field in an Option Group has a **Conditional Logic** section at the bottom of its settings panel. When you enable it, you define one or more **rules** that determine whether the field is visible or hidden.
 
-## Setting Up Rules
+### Key Concepts
 
-1. Open a field for editing in the **Addon Builder**.
-2. Navigate to the **Logic** or **Conditions** tab in the field settings.
-3. Click **Add Rule**.
+| Concept | Description |
+| :--- | :--- |
+| **Action** | Choose whether to **Show** or **Hide** this field when the rules are met. |
+| **Match Mode** | Choose **ALL** (every rule must be true) or **ANY** (at least one rule must be true). |
+| **Rules** | One or more conditions that reference other fields in the same group. |
 
-### Rule Components
+## Rule Components
 A rule consists of three parts:
 - **Target Field:** The other field you want to "watch" for changes.
 - **Operator:** The comparison type. Supported operators include:
@@ -28,32 +30,61 @@ A rule consists of three parts:
     - **is not empty:** Triggers if the field has any value.
 - **Value:** The specific value that triggers the logic.
 
-### Match Strategy
-If you have multiple rules for a single field, you can choose how they interact:
-- **ALL:** Every single rule must be true for the action to trigger.
-- **ANY:** If at least one rule is true, the action will trigger.
+> [!NOTE]
+> The available operators change depending on the **type** of the target field. Number fields get mathematical operators (`>`, `<`, `>=`, `<=`), while text and select fields get string operators (`contains`, `not contains`).
 
-## Use Case Examples
+## Operator Availability by Field Type
 
-### Example 1: Personalized Engraving
-- **Field A:** Checkbox labeled "Add Custom Engraving?"
-- **Field B:** Text field for "Engraving Text."
-- **Logic:** Set Field B to **Show** only if Field A **Equals** "Yes".
+| Target Field Type | Available Operators |
+| :--- | :--- |
+| **Text / Textarea** | equals, not equals, contains, not contains, is empty, is not empty |
+| **Number** | equals, not equals, greater than, less than, greater than or equals, less than or equals, is empty, is not empty |
+| **Select / Radio / Checkbox** | equals, not equals, contains, not contains, is empty, is not empty |
+| **Single Checkbox** | equals, not equals, is empty, is not empty |
 
-### Example 2: Material-Specific Options
-- **Field A:** Dropdown with "Wood", "Metal", and "Plastic".
-- **Field B:** Dropdown with "Wood Stain Colors".
-- **Logic:** Set Field B to **Show** only if Field A **Equals** "Wood".
+## Practical Examples
 
-## Performance & UX
+### Example 1: Show a Text Field Based on a Checkbox
+**Scenario:** You want to show an "Engraving Text" input only when the customer checks "Add Engraving?"
 
-OptionBay's logic engine runs instantly in the browser. When a field is hidden by logic:
-1. It is removed from the price calculation.
-2. Its value is cleared (so it doesn't get submitted with the order).
-3. The "Add to Cart" validation ignores it.
+| Setting | Value |
+| :--- | :--- |
+| Action | **Show** |
+| Match | **ALL** |
+| Target Field | "Add Engraving?" (single_checkbox) |
+| Operator | **equals** |
+| Value | `1` |
 
-## Best Practices
+### Example 2: Hide a Field Based on a Dropdown Selection
+**Scenario:** You want to hide a "Custom Size" number field when the customer selects "Standard" from a size dropdown.
 
-- **Avoid Infinite Loops:** Be careful not to create rules where Field A depends on Field B, and Field B depends on Field A.
-- **Keep it Simple:** Start with simple "Show" rules. Complex "Hide" rules can sometimes be confusing to manage as your form grows.
-- **Test Thoroughly:** Always preview your product page to ensure the logic flows naturally for the shopper.
+| Setting | Value |
+| :--- | :--- |
+| Action | **Hide** |
+| Match | **ALL** |
+| Target Field | "Size" (select) |
+| Operator | **equals** |
+| Value | `standard` |
+
+### Example 3: Show a Field When ANY of Multiple Conditions Are Met
+**Scenario:** You want to show a "Special Instructions" textarea when the customer selects either "Custom" from a type dropdown OR enters a number greater than 10 in a quantity field.
+
+| Setting | Value |
+| :--- | :--- |
+| Action | **Show** |
+| Match | **ANY** |
+| Rule 1 | Target: "Type" → Operator: **equals** → Value: `custom` |
+| Rule 2 | Target: "Quantity" → Operator: **greater than** → Value: `10` |
+
+## Important Notes
+
+> [!WARNING]
+> Conditional logic only works between fields **within the same Option Group**. You cannot create rules that reference fields from a different group.
+
+- **Frontend Behavior:** Conditions are evaluated instantly in the browser using JavaScript. There is no page reload — fields appear and disappear smoothly as the customer interacts with the form.
+- **Hidden Field Values:** When a field is hidden by conditional logic, its value is **not submitted** with the form. This means hidden fields do not affect pricing or validation.
+- **Multiple Rules:** You can add as many rules as you need by clicking the **+ Add Rule** button.
+
+## Next Steps
+- [Learn about Frontend Display](./frontend-display)
+- [Explore Field Types](./builder)
